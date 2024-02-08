@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/vinicius-f-pereira/42-project-badges/main/badges/get_next_linem.png"/>
+</p>
+
 # Get_Next_Line
 This project is about programming a function that returns a line read from a file descriptor.
 

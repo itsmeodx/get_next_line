@@ -6,7 +6,7 @@
 /*   By: oouaadic <oouaadic@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 15:46:27 by oouaadic          #+#    #+#             */
-/*   Updated: 2024/01/14 13:39:34 by oouaadic         ###   ########.fr       */
+/*   Updated: 2024/05/15 16:42:40 by oouaadic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	read_and_append(char **line, int fd)
 
 	count = 1;
 	buff = ft_strnew(BUFFER_SIZE);
-	while (count > 0 && !ft_strchr(*line, '\n'))
+	while (count > 0 && !ft_alt_strchr(*line, '\n'))
 	{
 		count = read(fd, buff, BUFFER_SIZE);
 		if (count < 0)
@@ -29,7 +29,7 @@ void	read_and_append(char **line, int fd)
 			return ;
 		}
 		buff[count] = '\0';
-		*line = ft_strjoin(*line, buff);
+		*line = ft_alt_strjoin(*line, buff);
 	}
 	free(buff);
 }
@@ -50,13 +50,13 @@ char	*get_next_line(int fd)
 		i++;
 	if (line[fd][i] == '\0')
 	{
-		str = ft_strsub(line[fd], 0, i, 0);
+		str = ft_alt_strsub(line[fd], 0, i, 0);
 		free(line[fd]);
 		line[fd] = NULL;
 		return (str);
 	}
-	str = ft_strsub(line[fd], 0, i + 1, 0);
-	line[fd] = ft_strsub(line[fd], i + 1, ft_strlen(line[fd]) - i, 1);
+	str = ft_alt_strsub(line[fd], 0, i + 1, 0);
+	line[fd] = ft_alt_strsub(line[fd], i + 1, ft_alt_strlen(line[fd]) - i, 1);
 	if (!line[fd])
 		return (NULL);
 	return (str);

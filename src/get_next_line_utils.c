@@ -6,7 +6,7 @@
 /*   By: oouaadic <oouaadic@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 13:31:14 by oouaadic          #+#    #+#             */
-/*   Updated: 2024/01/11 15:17:07 by oouaadic         ###   ########.fr       */
+/*   Updated: 2024/05/15 18:24:37 by oouaadic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strnew(size_t size)
 	return (str);
 }
 
-size_t	ft_strlen(const char *str)
+size_t	ft_alt_strlen(const char *str)
 {
 	size_t	i;
 
@@ -38,7 +38,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_strjoin(char *line, char *buff)
+char	*ft_alt_strjoin(char *line, char *buff)
 {
 	char	*str;
 	size_t	i;
@@ -51,7 +51,7 @@ char	*ft_strjoin(char *line, char *buff)
 		return (NULL);
 	i = -1;
 	j = -1;
-	size = ft_strlen(line) + ft_strlen(buff);
+	size = ft_alt_strlen(line) + ft_alt_strlen(buff);
 	str = ft_strnew(size);
 	if (!str)
 	{
@@ -66,7 +66,8 @@ char	*ft_strjoin(char *line, char *buff)
 	return (str);
 }
 
-char	*ft_strsub(char const *line, unsigned int start, size_t len, int flag)
+char	*ft_alt_strsub(char const *line, unsigned int start, size_t len,
+		int flag)
 {
 	char	*sub;
 	size_t	i;
@@ -75,7 +76,7 @@ char	*ft_strsub(char const *line, unsigned int start, size_t len, int flag)
 	if (!line)
 		return (NULL);
 	i = 0;
-	size = ft_strlen(line);
+	size = ft_alt_strlen(line);
 	if (size == 0)
 		return (NULL);
 	sub = ft_strnew(len);
@@ -88,7 +89,7 @@ char	*ft_strsub(char const *line, unsigned int start, size_t len, int flag)
 	return (sub);
 }
 
-char	*ft_strchr(const char *line, int c)
+char	*ft_alt_strchr(const char *line, int c)
 {
 	size_t	i;
 

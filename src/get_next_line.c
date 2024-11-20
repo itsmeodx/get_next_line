@@ -6,13 +6,13 @@
 /*   By: oouaadic <oouaadic@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 15:46:27 by oouaadic          #+#    #+#             */
-/*   Updated: 2024/05/15 16:52:15 by oouaadic         ###   ########.fr       */
+/*   Updated: 2024/11/20 15:36:48 by oouaadic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	read_and_append(char **line, int fd)
+static inline void	read_and_append(char **line, int fd)
 {
 	char		*buff;
 	int			count;
@@ -50,10 +50,10 @@ char	*get_next_line(int fd)
 		i++;
 	if (line[i] == '\0')
 	{
-		str = ft_alt_strsub(line, 0, i, 0);
-		free(line);
-		line = NULL;
-		return (str);
+		str = line;
+		if (!str[0])
+			str = NULL;
+		return (free(line), line = NULL, str);
 	}
 	str = ft_alt_strsub(line, 0, i + 1, 0);
 	line = ft_alt_strsub(line, i + 1, ft_alt_strlen(line) - i, 1);
